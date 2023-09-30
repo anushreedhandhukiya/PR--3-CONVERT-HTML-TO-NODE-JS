@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Viewer</title>
+</head>
+
+<body>
+    <div id="parent"></div>
+</body>
+<script>
+  fetch('/recipe/all')
+      .then(response => response.json())
+      .then(data => {
+        const parentDiv = document.getElementById('parent');
+        
+        data.forEach(recipe => {
+          const recipeDiv = document.createElement('div');
+          recipeDiv.innerHTML = `
+            <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+              <h2>${recipe.name}</h2>
+              <p><strong>Description:</strong> ${recipe.description}</p>
+              <p><strong>Preparation Time:</strong> ${recipe.preparationTime}</p>
+              <p><strong>Cooking Time:</strong> ${recipe.cookingTime}</p>
+              <p><strong>Country:</strong> ${recipe.country}</p>
+              <p><strong>Veg:</strong> ${recipe.veg ? 'Yes' : 'No'}</p>
+              <img src="${recipe.imageUrl}" alt="${recipe.name}" style="max-width: 200px; height: auto;">
+            </div>
+          `;
+          parentDiv.appendChild(recipeDiv);
+        });
+      })
+      .catch(error => console.error('Error fetching recipes:', error));
+</script>
+</html>

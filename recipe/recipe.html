@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Recipe</title>
+</head>
+<body>
+  <h2>Add Recipe</h2>
+  <form action="/add" method="POST">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name"><br>
+
+    <label for="description">Description:</label><br>
+    <input type="text" id="description" name="description"><br>
+
+    <label for="preparationTime">Preparation Time:</label><br>
+    <input type="text" id="preparationTime" name="preparationTime"><br>
+
+    <label for="cookingTime">Cooking Time:</label><br>
+    <input type="text" id="cookingTime" name="cookingTime"><br>
+
+    <label for="imageUrl">Image URL:</label><br>
+    <input type="text" id="imageUrl" name="imageUrl"><br>
+
+    <label for="country">Country:</label><br>
+    <input type="text" id="country" name="country"><br>
+
+    <label for="veg">Veg:</label><br>
+    <input type="checkbox" id="veg" name="veg" value="true"><br><br>
+    
+    <input type="submit" value="Add Recipe">
+  </form>
+</body>
+</html>
